@@ -10,4 +10,10 @@
     <None Include="wwwroot\.DS_Store" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="assets\img\MainPageMid19203.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
