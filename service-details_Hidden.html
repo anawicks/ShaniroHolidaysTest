@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TOURvex — Travel Agency Template</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow+Semi+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    .hidden-page{font-family:Arial,Helvetica,sans-serif;color:#24322a;line-height:1.7;background:#f7f8f4;margin:0}
+    .hidden-page *{box-sizing:border-box}
+    .hidden-page a{color:inherit}
+    .hidden-hero{min-height:500px;padding:110px 24px 90px;display:flex;align-items:center;justify-content:center;text-align:center;background:
+      linear-gradient(rgba(0,0,0,.38),rgba(0,0,0,.52)),
+      url("images/hidden-sri-lanka-hero.jpg") center/cover no-repeat;color:#fff}
+    .hidden-hero-inner{max-width:900px}
+    .hidden-hero h1{font-size:clamp(38px,6vw,68px);line-height:1.08;margin:0 0 20px}
+    .hidden-hero p{font-size:clamp(18px,2.4vw,25px);margin:0 auto;max-width:760px}
+    .hidden-wrap{max-width:1180px;margin:auto;padding:65px 22px}
+    .hidden-intro{text-align:center;max-width:850px;margin:0 auto 55px}
+    .hidden-intro h2{font-size:36px;margin:0 0 15px;color:#1f5a3b}
+    .hidden-intro p{font-size:18px}
+    .hidden-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;margin-left: 2cm;margin-right: 2cm}
+    .hidden-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 5px 22px rgba(0,0,0,.09)}
+    .hidden-card img{display:block;height:355px;width:100%;margin-left:auto;margin-right:auto; object-fit: cover;}
+    .hidden-card-body{padding:25px}
+    .hidden-card h3{font-size:25px;line-height:1.2;color:#1f5a3b;margin:0 0 6px}
+    .hidden-location{font-size:14px;font-weight:bold;color:#777;margin-bottom:15px}
+    .hidden-card p{margin:0 0 14px}
+    .hidden-note{font-size:14px;background:#f0f4ed;border-left:4px solid #6c8f62;padding:10px 13px;margin-top:15px}
+    .hidden-cta{margin-top:60px;padding:45px 30px;text-align:center;border-radius:14px;background:#1f5a3b;color:#fff}
+    .hidden-cta h2{margin:0 0 12px;font-size:32px}
+    .hidden-cta p{max-width:760px;margin:0 auto 20px;font-size:17px}
+    .hidden-button{display:inline-block;background:#fff;color:#1f5a3b;text-decoration:none;font-weight:bold;padding:12px 25px;border-radius:30px}
+    .hidden-footer{text-align:center;padding:25px;color:#687269;font-size:14px}
+    @media(max-width:460px){
+      .hidden-hero{min-height:430px;padding:80px 18px}
+      .hidden-wrap{padding:45px 16px}
+      .hidden-grid{grid-template-columns:1fr}
+      .hidden-card img{height:230px}
+    }
+  </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="loader-wrap">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+            <path id="svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+        </svg>
+        <div class="loader-wrap-heading">
+            <div class="load-text"> <span>L</span> <span>o</span> <span>a</span> <span>d</span> <span>i</span> <span>n</span> <span>g</span> </div>
+        </div>
+    </div>
+    <!-- Cursor -->
+    <div class="cursor"></div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Smooth-wrapper -->
+    <div id="smooth-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Logo -->
+                <div class="logo-wrapper">
+                    <a class="logo" href="index.html"><img src="assets/img/logo.png" class="logo-img" alt=""></a>
+                </div>
+                <!-- Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"><i class="ti-menu"></i></span> </button>
+                <!-- Menu -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><span class="rolling-text">Home</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="index.html" class="dropdown-item"><span>Home Layout 1</span></a></li>
+                                <li><a href="index2.html" class="dropdown-item"><span>Home Layout 2</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html"><span class="rolling-text">About</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="tours.html"><span class="rolling-text">Tours</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="destination.html"><span class="rolling-text">Destinations</span></a></li>
+                        <li class="nav-item dropdown"> <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><span class="rolling-text">Destinations</span></a>
+                            <ul class="dropdown-menu">
+                                
+                                <li><a href="tour-detail_Sigiriya.html" class="dropdown-item"><span>Sigiriya</span></a></li> 
+                                <li><a href="tour-detail_Polonnaruwa.html" class="dropdown-item"><span>Polonnaruwa</span></a></li>
+                                <li><a href="tour-detail_Dambulla.html" class="dropdown-item"><span>Dambulla cave temple</span></a></li>
+                                <li><a href="tour-detail_Kandy.html" class="dropdown-item"><span>Kandy holy tooth relic temple </span></a></li>
+                                <li><a href="tour-detail_Minneriya.html" class="dropdown-item"><span>Minneriya Elephant Safari </span></a></li>
+                                <li><a href="tour-detail_Ella.html" class="dropdown-item"><span>Ella </span></a></li>
+                                <li><a href="tour-detail_Anuradhapura.html" class="dropdown-item"><span>⁠Anuradhapura Historical Site</span></a></li>
+                                <li><a href="tour-detail_Trinco.html" class="dropdown-item"><span>⁠Trinco  Koneshwaram temple</span></a></li>
+                                <li><a href="tour-detail_Jaffna.html" class="dropdown-item"><span>⁠JaffnaFort Island</span></a></li>
+                                <li><a href="tour-detail_Galle.html" class="dropdown-item"><span>⁠Galle Fort</span></a></li>
+                                <li><a href="tour-detail_Bentota.html" class="dropdown-item"><span> Bentota Water Sport</span></a></li>
+                                <li><a href="tour-detail_NuweraEliya.html" class="dropdown-item"><span>⁠⁠Nuwereliya Train Ride to Ella</span></a></li>
+                                <li><a href="tour-detail_PeakoeTr.html" class="dropdown-item"><span>Peakoe Trail</span></a></li>
+                                <li><a href="service-details_Hidden.html" class="dropdown-item"><span>Hidden Sri Lanka</span></a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="services.html"><span class="rolling-text">Services</span></a></li>
+                        <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><span class="rolling-text">Pages</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="team.html" class="dropdown-item"><span>Team</span></a></li>
+                                <li><a href="team-details.html" class="dropdown-item"><span>Team Details</span></a></li>
+                                <li><a href="testimonials.html" class="dropdown-item"><span>Testimonials</span></a></li>
+                                <li><a href="faq.html" class="dropdown-item"><span>FAQ</span></a></li>
+                                <li><a href="404.html" class="dropdown-item"><span>404 Page</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html"><span class="rolling-text">Blog</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html"><span class="rolling-text">Contact</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="smooth-content">
+            <main class="o-hidden">
+                <!-- Header Banner -->
+                <header class="pg-hero section-padding">
+                    <div class="container">
+                        <div class="row mb-60 justify-content-center">
+                            <div class="col-md-5 text-center">
+                                <div class="section-subtitle">Discover</div>
+                                <div class="section-title">The <i>Sri Lanka that Few Travellers</i> See</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="height1">
+                            <div class="radius-mask">
+                                <div class="bg-img height2" data-background="assets/img/HiddenPageMain.jpg" data-speed="0.8" data-lag="0"></div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- Services Details -->
+                <div class="service-details section-padding pb-0">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12">
+                                <h4>Overview</h4>
+                                <p class="mb-30">Discover carefully selected hotels and accommodations that combine comfort, quality, and convenience. Whether you're looking for a luxury resort, a boutique hotel, or a cozy stay, we help you find the perfect place to relax and enjoy your journey.</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Experience Includes</h4>
+                                        <ul class="list-unstyled list">
+                                            <li>
+                                                <div class="list-icon"> <span class="ti-check"></span> </div>
+                                                <div class="list-text">
+                                                    <p>Personalized stays tailored to your travel style</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="list-icon"> <span class="ti-check"></span> </div>
+                                                <div class="list-text">
+                                                    <p>Carefully selected hotels with comfort and elegance</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="list-icon"> <span class="ti-check"></span> </div>
+                                                <div class="list-text">
+                                                    <p>Seamless blend of convenience, quality, and experience</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 offset-lg-1 col-md-12">
+                                <blockquote class="vert-move">
+                                    <p>At our travel agency, every journey is shaped by carefully crafted details that make your trip seamless and memorable.</p> <cite>Charles Eames</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!----AW code-->
+<section class="hidden-grid">
+
+      <article class="hidden-card">
+        <img src="assets/img/HiddenMeemure.jpg" alt="Meemure village and Lakegala mountain in Sri Lanka" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>1. Meemure – A Village Beneath Lakegala</h3>
+          <div class="hidden-location">Kandy–Matale border, Central Sri Lanka</div>
+          <p>
+            Tucked among the mountains of the Knuckles Range, Meemure is a traditional rural village surrounded by forests, streams, mountain slopes and paddy fields. Its setting beneath the distinctive Lakegala mountain makes the journey here feel very different from a conventional sightseeing tour.
+          </p>
+          <p>
+            Visitors can experience village walks, photography, bird watching, cycling and guided mountain excursions while seeing traditional agricultural practices and village life. Meemure is best approached as a slow, immersive experience rather than a quick stop.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> Access can be rough and weather-dependent. Arrange local guidance and suitable transport before travelling.</div>
+        </div>
+      </article>
+
+      <article class="hidden-card">
+        <img src="assets/img/HiddenPitawela.jpg" alt="Riverston and Pitawala Pathana mountain landscape in Sri Lanka" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>2. Riverston &amp; Pitawala Pathana</h3>
+          <div class="hidden-location">Matale District, Central Highlands</div>
+          <p>
+            Riverston is a spectacular mountain destination on the edge of the Knuckles region, known for cool mist, strong mountain winds and broad views across the surrounding valleys. The journey itself is part of the experience, with winding roads, forest scenery and changing mountain weather.
+          </p>
+          <p>
+            Nearby Pitawala Pathana and Mini World's End provide dramatic viewpoints over the landscape. Waterfalls such as Sera Ella and Bambarakiri Ella add another dimension to the area, making Riverston suitable for scenic drives, short walks and nature-focused excursions.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> Mountain weather can change quickly. Allow extra time and use care around steep viewpoints and wet trails.</div>
+        </div>
+      </article>
+
+      <article class="hidden-card">
+        <img src="assets/img/HiddenGalOya.jpg" alt="Boat safari on Senanayake Samudraya at Gal Oya National Park" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>3. Gal Oya National Park – Safari by Water</h3>
+          <div class="hidden-location">Eastern Province</div>
+          <p>
+            Gal Oya offers a different kind of wildlife experience: instead of viewing the landscape only from a jeep, visitors can explore the waters of the vast Senanayake Samudraya by boat. Forested islands, rocky shores and open water create a beautiful setting for photography and bird watching.
+          </p>
+          <p>
+            The park supports a rich variety of wildlife and birdlife. Sri Lanka Tourism notes that the wetland environment attracts many resident and migratory birds, while the wider park provides habitat for a range of animals and native vegetation.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> Boat and safari arrangements should be made locally and checked for current operating conditions.</div>
+        </div>
+      </article>
+
+      <article class="hidden-card">
+        <img src="assets/img/HiddenRitigala.jpg" alt="Ancient stone pathways and ruins at Ritigala monastery" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>4. Ritigala – Ancient Ruins in the Forest</h3>
+          <div class="hidden-location">North Central Province</div>
+          <p>
+            Ritigala combines archaeology and wilderness in a remarkable setting. Deep among forested slopes are the remains of an ancient Buddhist monastic complex, including stone-paved paths, stairways, bridges and meditation structures.
+          </p>
+          <p>
+            The atmosphere is one of the site's greatest attractions. Rather than standing in an open archaeological park, the ruins appear gradually among trees and rocks. The surrounding Ritigala mountain and forest also form an important natural environment, giving visitors an unusual combination of history, silence and nature.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> Wear comfortable walking shoes and allow time for the forest paths and archaeological area.</div>
+        </div>
+      </article>
+
+      <article class="hidden-card">
+        <img src="images/hidden/kudumbigala.jpg" alt="Kudumbigala ancient monastery and rock landscape" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>5. Kudumbigala – A Monastery on the Rocks</h3>
+          <div class="hidden-location">Ampara District, Eastern Province</div>
+          <p>
+            Rising from the forested landscape of the southeast, Kudumbigala is an ancient monastic site built around striking rock formations. The remains, caves and meditation spaces reveal how Buddhist monastic life once extended into remote parts of the island.
+          </p>
+          <p>
+            A climb to the upper rock areas rewards visitors with wide views over the surrounding wilderness. The combination of archaeology, rocky terrain and forest makes Kudumbigala particularly attractive to photographers and travellers looking for places away from the main tourist circuit.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> The climb can be strenuous. Carry water, wear proper footwear and consider travelling with a local guide.</div>
+        </div>
+      </article>
+
+      <article class="hidden-card">
+        <img src="images/hidden/rajagala.jpg" alt="Rajagala ancient monastery ruins surrounded by forest" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>6. Rajagala – An Ancient Monastery in the Jungle</h3>
+          <div class="hidden-location">Uhana, Ampara District</div>
+          <p>
+            Rajagala is a vast archaeological and monastic landscape set on a forest-covered mountain. Ancient pathways, stone steps, ruins, inscriptions and other remains are scattered across the site, creating the feeling of discovering a forgotten city in the wilderness.
+          </p>
+          <p>
+            Sri Lanka Tourism describes Rajagala as an important ancient monastic centre associated with the early history of Buddhism on the island. The climb through the forest adds an adventurous element and provides opportunities for photography, archaeology and wildlife observation.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> Plan several hours for the visit and take sufficient drinking water for the climb.</div>
+        </div>
+      </article>
+
+      <article class="hidden-card">
+        <img src="images/hidden/yapahuwa.jpg" alt="Ornamental stone staircase at Yapahuwa Rock Fortress" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>7. Yapahuwa – The Forgotten Rock Fortress</h3>
+          <div class="hidden-location">Kurunegala District, North Western Province</div>
+          <p>
+            Before the better-known medieval capitals that followed it, Yapahuwa served as an important royal centre. Today the rocky stronghold rises above the surrounding countryside, with archaeological remains and a remarkable ornamental staircase decorated with elaborate stone carvings.
+          </p>
+          <p>
+            Climbing through the fortress gives visitors a sense of the defensive character of the site while also opening views across the surrounding forest and countryside. For travellers interested in Sri Lankan history and architecture, Yapahuwa provides a quieter alternative to the island's most heavily visited ancient monuments.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> The staircase and upper areas involve climbing. Comfortable footwear and sun protection are recommended.</div>
+        </div>
+      </article>
+
+      <article class="hidden-card">
+        <img src="images/hidden/delft.jpg" alt="Delft Island landscape with coral walls and wild horses" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>8. Delft Island – An Island of Coral, History &amp; Wild Horses</h3>
+          <div class="hidden-location">Jaffna District, Northern Province</div>
+          <p>
+            Delft Island, or Neduntivu, feels unlike almost anywhere else in Sri Lanka. Its dry landscape is marked by coral-stone walls, palmyra vegetation, historic remains and distinctive coastal scenery. The island is also known for its population of free-roaming ponies.
+          </p>
+          <p>
+            Visitors can explore remnants of Dutch and earlier periods, old wells, ancient religious sites, the island's famous baobab tree and other unusual landmarks. Reaching Delft is itself part of the experience, with ferry travel from the Jaffna peninsula and local transport on the island.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> Ferry services and schedules can change with weather and operating conditions. Check locally before departure.</div>
+        </div>
+      </article>
+
+      <article class="hidden-card">
+        <img src="images/hidden/heeloya.jpg" alt="Traditional paddy fields and mountain scenery around Heeloya village" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>9. Heeloya – Step into Traditional Village Life</h3>
+          <div class="hidden-location">Kandy District, Central Province</div>
+          <p>
+            Heeloya offers something that many sightseeing tours cannot provide: an opportunity to experience a rural Sri Lankan community and its relationship with agriculture, forests and traditional livelihoods. Paddy cultivation, home gardens and village crafts form part of the local landscape.
+          </p>
+          <p>
+            Walking routes through the surrounding countryside can reveal mountain forests, streams, birds and changing agricultural scenery. With appropriate local arrangements, the experience can include traditional food and a closer look at everyday village life in the Central Highlands.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> Treat village communities respectfully and arrange visits, meals or homestays through local hosts.</div>
+        </div>
+      </article>
+
+      <article class="hidden-card">
+        <img src="images/hidden/ambekke.jpg" alt="Carved wooden pillars at Ambekke Devalaya near Kandy" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>10. Ambekke Devalaya – A Hidden Masterpiece of Woodcarving</h3>
+          <div class="hidden-location">Udunuwara, near Kandy</div>
+          <p>
+            Set among the green countryside near Kandy, Ambekke Devalaya is a historic shrine renowned for its detailed wooden carvings. The surviving buildings and decorative elements provide an intimate glimpse into the craftsmanship and religious architecture of the Gampola period.
+          </p>
+          <p>
+            The site is particularly rewarding for visitors who enjoy architecture, traditional art and photography. Its quieter setting, surrounded by paddy fields and village scenery, makes it an easy cultural addition to a Kandy itinerary without the crowds of the city's major attractions.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> Dress respectfully when visiting religious sites and follow local photography guidelines.</div>
+        </div>
+      </article>
+
+      <article class="hidden-card">
+        <img src="images/hidden/maduwanwela.jpg" alt="Maduwanwela Walawwa historic mansion in southern Sri Lanka" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>11. Maduwanwela Walawwa – A Forgotten Country Mansion</h3>
+          <div class="hidden-location">Kolonne, Sabaragamuwa region</div>
+          <p>
+            Hidden in a quiet rural landscape, Maduwanwela Walawwa is a remarkable historic mansion associated with the Kandyan-era aristocracy and later colonial-period influences. Its architecture combines Kandyan, Indian and Western features around courtyards, rooms and traditional decorative details.
+          </p>
+          <p>
+            The mansion provides a different perspective on Sri Lankan history: instead of temples and royal ruins, visitors can explore the domestic and administrative world of a powerful landed family. Its peaceful surroundings make it especially interesting for travellers who enjoy heritage, architecture and stories of the people who shaped Sri Lanka's past.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> Check opening arrangements before travelling, as heritage sites may have conservation or restoration work underway.</div>
+        </div>
+      </article>
+
+      <article class="hidden-card">
+        <img src="images/hidden/namal-uyana.jpg" alt="Pink quartz mountain and ironwood forest at Jathika Namal Uyana" loading="lazy">
+        <div class="hidden-card-body">
+          <h3>12. Jathika Namal Uyana – Forest &amp; Pink Quartz</h3>
+          <div class="hidden-location">Galkiriyagama, North Central Province</div>
+          <p>
+            Jathika Namal Uyana is an unusual landscape combining a large ironwood forest with striking pink quartz rock formations. The site also has archaeological and religious associations, making it an interesting stop for visitors who want to combine nature, geology and heritage.
+          </p>
+          <p>
+            Walking among the forest and rocky landscape provides a very different experience from Sri Lanka's better-known ancient cities. The pink quartz hills are the visual highlight, while the forest and archaeological remains add depth to the visit.
+          </p>
+          <div class="hidden-note"><strong>Travel note:</strong> Take water, sun protection and suitable walking shoes, especially during hotter periods.</div>
+        </div>
+      </article>
+
+    </section>
+                <!---End AW Code---> 
+                <!-- Image -->
+                <section class="image-stack pt-30">
+                  <div class="image-stack-wrapper">
+                    <div class="image-stack-card">
+                      <img src="assets/img/500.jpg" alt="">
+                    </div>
+                    <div class="image-stack-card">
+                      <img src="assets/img/500.jpg" alt="">
+                    </div>
+                    <div class="image-stack-card">
+                      <img src="assets/img/500.jpg" alt="">
+                    </div>
+                    <div class="image-stack-card">
+                      <img src="assets/img/500.jpg" alt="">
+                    </div>
+                    <div class="image-stack-card">
+                      <img src="assets/img/500.jpg" alt="">
+                    </div>
+                  </div>
+                </section>
+                <!-- Services Details -->
+                <section class="service-details section-padding pt-30">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12">
+                                <h4>Frequently Asked Questions</h4>
+                                <ul class="accordion-box clearfix">
+                                    <li class="accordion block">
+                                        <div class="acc-btn">How do I make a hotel reservation?</div>
+                                        <div class="acc-content">
+                                            <div class="content">
+                                                <p>You can easily book your stay through our website or by contacting our travel consultants for personalized assistance.</p> <i class="fa-thin fa-hotel"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion block">
+                                        <div class="acc-btn">What is the check-in and check-out time?</div>
+                                        <div class="acc-content">
+                                            <div class="content">
+                                                <p>Check-in and check-out times vary by hotel, but we always provide full details before your booking is confirmed.</p> <i class="fa-thin fa-calendar"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion block active-block">
+                                        <div class="acc-btn active">Can I modify or cancel my booking?</div>
+                                        <div class="acc-content" style="display: block;">
+                                            <div class="content">
+                                                <p>Yes, most reservations can be modified or canceled according to the hotel’s policy. Our team is here to assist you with any changes.</p> <i class="fa-thin fa-plane"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-7 mb-45 text-center">
+                            <div class="subscribe">
+                                <div class="section-subtitle wow fadeInRight">Subscribe to travel</div>
+                                <div class="section-title d-rotate wow mb-30"><span class="rotate-text text-white">Travel deals to your inbox<i>!</i></span></div>
+                                <div class="newsletter">
+                                    <form action="#">
+                                        <input type="email" placeholder="Enter your email address" required>
+                                        <button type="submit"><i class="fa-light fa-arrow-right"></i></button>
+                                    </form>
+                                </div>
+                                <p>We are committed to protecting your <a href="#0" class="text-decoration-line-bottom">privacy policy.</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Instagram -->
+                    <div class="insta">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="item">
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/500.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/500.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/500.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/500.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/500.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/500.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="follow">
+                                            <a href="#0" class="text-bg"> <span><i class="fa-brands fa-instagram"></i> / TOURvex</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bottom -->
+                <div class="bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-12">
+                                <p>&copy; All Rights Reserved <a href="https://1.envato.market/7ZzYQ" target="_blank">DuruThemes</a></p>
+                            </div>
+                            <div class="col-lg-7 col-md-12 text-center">
+                                <div class="links">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="tours.html">Tours</a></li>
+                                        <li><a href="destination.html">Destinations</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-12">
+                                <div class="social-icons text-end">
+                                    <ul class="list-inline">
+                                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-text-style5">Tourvex</div>
+            </footer>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-3.4.0.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollSmoother.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/smoother-script.js"></script>
+    <script src="assets/js/springer.min.js"></script>
+    <script src="assets/js/lenis.min.js"></script>
+    <script src="assets/js/three.min.js"></script>
+    <script src="assets/js/hover-effect.umd.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+</html>
