@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TOURvex — Travel Agency Template</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500;600;700&family=Barlow+Semi+Condensed:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/plugins.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+ <style>
+:root {
+    --primary: #0b5d4f;
+    --primary-dark: #073f36;
+    --accent: #d69b32;
+    --light: #f5f8f6;
+    --text: #26332f;
+    --muted: #65736e;
+    --white: #ffffff;
+    --shadow: 0 8px 25px rgba(0,0,0,.10);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.65;
+}
+
+a { color: inherit; }
+
+.hero {
+    min-height: 430px;
+    padding: 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background:
+        linear-gradient(rgba(0,45,38,.68), rgba(0,45,38,.68)),
+        url("images/sri-lanka-tours.jpg") center/cover no-repeat;
+    color: white;
+}
+
+.hero-content { max-width: 900px; }
+
+.hero h1 {
+    margin: 0 0 15px;
+    font-size: clamp(38px, 6vw, 68px);
+    letter-spacing: .5px;
+}
+
+.hero p {
+    max-width: 760px;
+    margin: 0 auto 28px;
+    font-size: clamp(18px, 2.3vw, 23px);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .2s ease;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-primary:hover { transform: translateY(-2px); }
+
+.container {
+    width: min(1180px, 92%);
+    margin: auto;
+}
+
+.intro {
+    text-align: center;
+    padding: 65px 10px 35px;
+}
+
+.intro h2 {
+    color: var(--primary);
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+
+.intro p {
+    max-width: 800px;
+    margin: auto;
+    color: var(--muted);
+}
+
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    padding: 25px 0 70px;
+}
+
+.tour-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid #e5ebe8;
+    display: flex;
+    flex-direction: column;
+}
+
+.tour-image {
+    height: 235px;
+    background-position: center;
+    background-size: cover;
+    background-color: #dce8e3;
+}
+
+.tour-content {
+    padding: 25px;
+    flex: 1;
+}
+
+.tour-tag {
+    display: inline-block;
+    background: #e9f3ef;
+    color: var(--primary);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.tour-content h3 {
+    margin: 0 0 7px;
+    color: var(--primary-dark);
+    font-size: 25px;
+}
+
+.duration {
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+
+.tour-content p { color: var(--muted); }
+
+.highlights {
+    margin: 18px 0;
+    padding-left: 20px;
+}
+
+.highlights li { margin-bottom: 5px; }
+
+details {
+    margin-top: 18px;
+    border-top: 1px solid #e4e9e7;
+    padding-top: 15px;
+}
+
+summary {
+    cursor: pointer;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.itinerary {
+    margin-top: 15px;
+}
+
+.day {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 12px;
+    margin-bottom: 11px;
+}
+
+.day strong { color: var(--primary); }
+
+.card-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+}
+
+.btn-small {
+    padding: 10px 16px;
+    font-size: 14px;
+}
+
+.btn-outline {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.custom-tour {
+    background: var(--light);
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.custom-tour h2 {
+    color: var(--primary);
+    font-size: 34px;
+}
+
+.custom-tour p {
+    max-width: 750px;
+    margin: 0 auto 25px;
+    color: var(--muted);
+}
+
+.footer-note {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+    font-size: 13px;
+}
+
+@media (max-width: 800px) {
+    .tour-grid { grid-template-columns: 1fr; }
+    .hero { min-height: 390px; }
+}
+
+@media (max-width: 500px) {
+    .tour-image { height: 200px; }
+    .tour-content { padding: 20px; }
+    .day { grid-template-columns: 65px 1fr; }
+}
+</style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="loader-wrap">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none">
+            <path id="svg" d="M0,1005S175,995,500,995s500,5,500,5V0H0Z"></path>
+        </svg>
+        <div class="loader-wrap-heading">
+            <div class="load-text"> <span>L</span> <span>o</span> <span>a</span> <span>d</span> <span>i</span> <span>n</span> <span>g</span> </div>
+        </div>
+    </div>
+    <!-- Cursor -->
+    <div class="cursor"></div>
+    <!-- Progress scroll totop -->
+    <div class="progress-wrap cursor-pointer">
+        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+        </svg>
+    </div>
+    <!-- Smooth-wrapper -->
+    <div id="smooth-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <!-- Logo -->
+                <div class="logo-wrapper">
+                    <a class="logo" href="index.html"><img src="assets/img/logo.png" class="logo-img" alt=""></a>
+                </div>
+                <!-- Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"><i class="ti-menu"></i></span> </button>
+                <!-- Menu -->
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><span class="rolling-text">Home</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="index.html" class="dropdown-item"><span>Home Layout 1</span></a></li>
+                                <li><a href="index2.html" class="dropdown-item"><span>Home Layout 2</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html"><span class="rolling-text">About</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="tours.html"><span class="rolling-text">Tours</span></a></li>
+                        <!-- <li class="nav-item"><a class="nav-link" href="destination.html"><span class="rolling-text">Destinations</span></a></li> -->
+                        <li class="nav-item dropdown"> <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><span class="rolling-text">Destinations</span></a>
+                            <ul class="dropdown-menu">
+                                
+                                <li><a href="tour-detail_Sigiriya.html" class="dropdown-item"><span>Sigiriya</span></a></li> 
+                                <li><a href="tour-detail_Polonnaruwa.html" class="dropdown-item"><span>Polonnaruwa</span></a></li>
+                                <li><a href="tour-detail_Dambulla.html" class="dropdown-item"><span>Dambulla cave temple</span></a></li>
+                                <li><a href="tour-detail_Kandy.html" class="dropdown-item"><span>Kandy holy tooth relic temple </span></a></li>
+                                <li><a href="tour-detail_Minneriya.html" class="dropdown-item"><span>Minneriya Elephant Safari </span></a></li>
+                                <li><a href="tour-detail_Ella.html" class="dropdown-item"><span>Ella </span></a></li>
+                                <li><a href="tour-detail_Anuradhapura.html" class="dropdown-item"><span>⁠Anuradhapura Historical Site</span></a></li>
+                                <li><a href="tour-detail_Trinco.html" class="dropdown-item"><span>⁠Trinco  Koneshwaram temple</span></a></li>
+                                <li><a href="tour-detail_Jaffna.html" class="dropdown-item"><span>⁠JaffnaFort Island</span></a></li>
+                                <li><a href="tour-detail_Galle.html" class="dropdown-item"><span>⁠Galle Fort</span></a></li>
+                                <li><a href="tour-detail_Bentota.html" class="dropdown-item"><span> Bentota Water Sport</span></a></li>
+                                <li><a href="tour-detail_NuweraEliya.html" class="dropdown-item"><span>⁠⁠Nuwereliya Train Ride to Ella</span></a></li>
+                                <li><a href="tour-detail_PeakoeTr.html" class="dropdown-item"><span>Peakoe Trail</span></a></li>
+                                <li><a href="service-details_Hidden.html" class="dropdown-item"><span>Hidden Sri Lanka</span></a></li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="services.html"><span class="rolling-text">Services</span></a></li>
+                        <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false"><span class="rolling-text">Pages</span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="team.html" class="dropdown-item"><span>Team</span></a></li>
+                                <li><a href="team-details.html" class="dropdown-item"><span>Team Details</span></a></li>
+                                <li><a href="testimonials.html" class="dropdown-item"><span>Testimonials</span></a></li>
+                                <li><a href="faq.html" class="dropdown-item"><span>FAQ</span></a></li>
+                                <li><a href="404.html" class="dropdown-item"><span>404 Page</span></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="blog.html"><span class="rolling-text">Blog</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html"><span class="rolling-text">Contact</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="smooth-content">
+            <main class="o-hidden">
+                <!-- Header Banner -->
+                <header class="pg-hero section-padding">
+                    <div class="container">
+                        <div class="row mb-60 justify-content-center">
+                            <div class="col-md-5 text-center">
+                                <div class="section-subtitle">Discover</div>
+                                <div class="section-title">The <i>Sri Lanka that Few Travellers</i> See</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="height1">
+                            <div class="radius-mask">
+                                <div class="bg-img height2" data-background="assets/img/ToursMain.jpg" data-speed="0.8" data-lag="0"></div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <!-- Services Details -->
+                <div class="service-details section-padding pb-0">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12">
+                                <h4>Overview</h4>
+                                <p class="mb-30">Discover carefully selected hotels and accommodations that combine comfort, quality, and convenience. Whether you're looking for a luxury resort, a boutique hotel, or a cozy stay, we help you find the perfect place to relax and enjoy your journey.</p>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Experience Includes</h4>
+                                        <ul class="list-unstyled list">
+                                            <li>
+                                                <div class="list-icon"> <span class="ti-check"></span> </div>
+                                                <div class="list-text">
+                                                    <p>Personalized stays tailored to your travel style</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="list-icon"> <span class="ti-check"></span> </div>
+                                                <div class="list-text">
+                                                    <p>Carefully selected hotels with comfort and elegance</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="list-icon"> <span class="ti-check"></span> </div>
+                                                <div class="list-text">
+                                                    <p>Seamless blend of convenience, quality, and experience</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 offset-lg-1 col-md-12">
+                                <blockquote class="vert-move">
+                                    <p>At our travel agency, every journey is shaped by carefully crafted details that make your trip seamless and memorable.</p> <cite>Charles Eames</cite>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!----AW code-->
+
+
+<section class="intro container">
+    <h2>Explore Our Sri Lanka Tours</h2>
+    <p>
+        From the ancient cities of the Cultural Triangle to the tea-covered
+        mountains, wildlife-rich national parks and beautiful southern coast,
+        choose a tour that matches the way you want to experience Sri Lanka.
+        Every itinerary can also be customized to suit your interests, budget
+        and available time.
+    </p>
+</section>
+
+<main id="tours" class="container">
+<div class="tour-grid">
+
+<!-- 1 -->
+<article class="tour-card">
+<div class="tour-image" style="background-image:url('images/tours/classic-sri-lanka.jpg');"></div>
+<div class="tour-content">
+<span class="tour-tag">MOST POPULAR</span>
+<h3>Classic Sri Lanka</h3>
+<div class="duration">8 Days / 7 Nights</div>
+<p>
+A wonderful introduction to Sri Lanka combining ancient heritage,
+Kandy, the scenic tea country, Ella and the historic southern coast.
+</p>
+<ul class="highlights">
+<li>Sigiriya Rock Fortress</li>
+<li>Kandy and Temple of the Tooth</li>
+<li>Nuwara Eliya tea country</li>
+<li>Ella mountain scenery</li>
+<li>Galle Fort and southern coast</li>
+</ul>
+<details>
+<summary>View Day-by-Day Itinerary</summary>
+<div class="itinerary">
+<div class="day"><strong>Day 1</strong><span>Airport → Negombo. Relax beside the coast and recover from your journey.</span></div>
+<div class="day"><strong>Day 2</strong><span>Negombo → Dambulla → Sigiriya. Visit the Dambulla Cave Temple.</span></div>
+<div class="day"><strong>Day 3</strong><span>Sigiriya. Explore the ancient rock fortress and surrounding attractions.</span></div>
+<div class="day"><strong>Day 4</strong><span>Sigiriya → Kandy. Visit cultural sites and enjoy a traditional performance.</span></div>
+<div class="day"><strong>Day 5</strong><span>Kandy → Nuwara Eliya. Travel through tea plantations and mountain scenery.</span></div>
+<div class="day"><strong>Day 6</strong><span>Nuwara Eliya → Ella. Enjoy the hill-country landscape and Ella sights.</span></div>
+<div class="day"><strong>Day 7</strong><span>Ella → Galle. Travel south and explore historic Galle Fort.</span></div>
+<div class="day"><strong>Day 8</strong><span>Galle → Colombo Airport. Departure with wonderful memories of Sri Lanka.</span></div>
+</div>
+</details>
+<div class="card-buttons">
+<a class="btn btn-primary btn-small" href="contact.html">Enquire Now</a>
+</div>
+</div>
+</article>
+
+<!-- 2 -->
+<article class="tour-card">
+<div class="tour-image" style="background-image:url('images/tours/sri-lanka-highlights.jpg');"></div>
+<div class="tour-content">
+<span class="tour-tag">BEST OF THE ISLAND</span>
+<h3>Sri Lanka Highlights</h3>
+<div class="duration">10 Days / 9 Nights</div>
+<p>
+A balanced journey through culture, mountains, wildlife and the south coast,
+ideal for first-time visitors wanting to see many sides of the island.
+</p>
+<ul class="highlights">
+<li>Cultural Triangle</li>
+<li>Kandy and hill country</li>
+<li>Ella</li>
+<li>Yala wildlife safari</li>
+<li>Galle and the southern beaches</li>
+</ul>
+<details>
+<summary>View Day-by-Day Itinerary</summary>
+<div class="itinerary">
+<div class="day"><strong>Day 1</strong><span>Arrival → Negombo.</span></div>
+<div class="day"><strong>Day 2</strong><span>Negombo → Sigiriya. Dambulla Cave Temple en route.</span></div>
+<div class="day"><strong>Day 3</strong><span>Sigiriya and surrounding Cultural Triangle.</span></div>
+<div class="day"><strong>Day 4</strong><span>Sigiriya → Kandy.</span></div>
+<div class="day"><strong>Day 5</strong><span>Kandy → Nuwara Eliya through tea country.</span></div>
+<div class="day"><strong>Day 6</strong><span>Nuwara Eliya → Ella.</span></div>
+<div class="day"><strong>Day 7</strong><span>Ella → Yala area.</span></div>
+<div class="day"><strong>Day 8</strong><span>Yala National Park safari and onward to the south coast.</span></div>
+<div class="day"><strong>Day 9</strong><span>Galle Fort and beach relaxation.</span></div>
+<div class="day"><strong>Day 10</strong><span>South coast → Colombo Airport.</span></div>
+</div>
+</details>
+<div class="card-buttons"><a class="btn btn-primary btn-small" href="contact.html">Enquire Now</a></div>
+</div>
+</article>
+
+<!-- 3 -->
+<article class="tour-card">
+<div class="tour-image" style="background-image:url('images/tours/cultural-heritage.jpg');"></div>
+<div class="tour-content">
+<span class="tour-tag">HISTORY & CULTURE</span>
+<h3>Cultural Heritage Tour</h3>
+<div class="duration">6 Days / 5 Nights</div>
+<p>
+Journey into Sri Lanka's ancient heartland, discovering sacred cities,
+rock temples, ancient capitals and the cultural heritage of Kandy.
+</p>
+<ul class="highlights">
+<li>Anuradhapura</li>
+<li>Sigiriya</li>
+<li>Dambulla Cave Temple</li>
+<li>Polonnaruwa</li>
+<li>Kandy</li>
+</ul>
+<details>
+<summary>View Day-by-Day Itinerary</summary>
+<div class="itinerary">
+<div class="day"><strong>Day 1</strong><span>Airport → Anuradhapura.</span></div>
+<div class="day"><strong>Day 2</strong><span>Explore Anuradhapura and travel towards Sigiriya.</span></div>
+<div class="day"><strong>Day 3</strong><span>Sigiriya and Dambulla.</span></div>
+<div class="day"><strong>Day 4</strong><span>Polonnaruwa ancient city.</span></div>
+<div class="day"><strong>Day 5</strong><span>Polonnaruwa → Kandy. Explore Kandy.</span></div>
+<div class="day"><strong>Day 6</strong><span>Kandy → Colombo Airport.</span></div>
+</div>
+</details>
+<div class="card-buttons"><a class="btn btn-primary btn-small" href="contact.html">Enquire Now</a></div>
+</div>
+</article>
+
+<!-- 4 -->
+<article class="tour-card">
+<div class="tour-image" style="background-image:url('images/tours/hill-country.jpg');"></div>
+<div class="tour-content">
+<span class="tour-tag">SCENIC ESCAPE</span>
+<h3>Hill Country & Tea Trails</h3>
+<div class="duration">7 Days / 6 Nights</div>
+<p>
+Escape into Sri Lanka's cool central highlands, surrounded by tea estates,
+waterfalls, forests and spectacular mountain scenery.
+</p>
+<ul class="highlights">
+<li>Kandy</li>
+<li>Nuwara Eliya</li>
+<li>Tea plantations and factories</li>
+<li>Haputale</li>
+<li>Ella and Nine Arch Bridge</li>
+</ul>
+<details>
+<summary>View Day-by-Day Itinerary</summary>
+<div class="itinerary">
+<div class="day"><strong>Day 1</strong><span>Airport → Kandy.</span></div>
+<div class="day"><strong>Day 2</strong><span>Kandy sightseeing and cultural experiences.</span></div>
+<div class="day"><strong>Day 3</strong><span>Kandy → Nuwara Eliya through tea country.</span></div>
+<div class="day"><strong>Day 4</strong><span>Nuwara Eliya tea estate and scenic surroundings.</span></div>
+<div class="day"><strong>Day 5</strong><span>Nuwara Eliya → Haputale.</span></div>
+<div class="day"><strong>Day 6</strong><span>Haputale → Ella. Nine Arch Bridge and viewpoints.</span></div>
+<div class="day"><strong>Day 7</strong><span>Ella → Colombo Airport or extend your stay.</span></div>
+</div>
+</details>
+<div class="card-buttons"><a class="btn btn-primary btn-small" href="contact.html">Enquire Now</a></div>
+</div>
+</article>
+
+<!-- 5 -->
+<article class="tour-card">
+<div class="tour-image" style="background-image:url('images/tours/wildlife-safari.jpg');"></div>
+<div class="tour-content">
+<span class="tour-tag">WILDLIFE ADVENTURE</span>
+<h3>Wildlife & Safari Adventure</h3>
+<div class="duration">7 Days / 6 Nights</div>
+<p>
+Experience Sri Lanka's remarkable wildlife, from elephants and endemic birds
+to the possibility of spotting leopards in one of the island's famous parks.
+</p>
+<ul class="highlights">
+<li>Sigiriya area</li>
+<li>Minneriya / nearby wildlife areas</li>
+<li>Kandy</li>
+<li>Udawalawe</li>
+<li>Yala National Park</li>
+</ul>
+<details>
+<summary>View Day-by-Day Itinerary</summary>
+<div class="itinerary">
+<div class="day"><strong>Day 1</strong><span>Airport → Sigiriya area.</span></div>
+<div class="day"><strong>Day 2</strong><span>Sigiriya and wildlife experience.</span></div>
+<div class="day"><strong>Day 3</strong><span>Sigiriya → Kandy.</span></div>
+<div class="day"><strong>Day 4</strong><span>Kandy → Udawalawe area.</span></div>
+<div class="day"><strong>Day 5</strong><span>Udawalawe safari and onward to Yala.</span></div>
+<div class="day"><strong>Day 6</strong><span>Yala National Park safari and southern coast.</span></div>
+<div class="day"><strong>Day 7</strong><span>Return to Colombo Airport.</span></div>
+</div>
+</details>
+<div class="card-buttons"><a class="btn btn-primary btn-small" href="contact.html">Enquire Now</a></div>
+</div>
+</article>
+
+<!-- 6 -->
+<article class="tour-card">
+<div class="tour-image" style="background-image:url('images/tours/southern-coast.jpg');"></div>
+<div class="tour-content">
+<span class="tour-tag">BEACH & COAST</span>
+<h3>Southern Coast & Beaches</h3>
+<div class="duration">5 Days / 4 Nights</div>
+<p>
+Relax along Sri Lanka's beautiful southern coastline while combining beaches,
+coastal villages, historic Galle and optional ocean experiences.
+</p>
+<ul class="highlights">
+<li>Bentota</li>
+<li>Galle Fort</li>
+<li>Unawatuna</li>
+<li>Weligama</li>
+<li>Mirissa</li>
+</ul>
+<details>
+<summary>View Day-by-Day Itinerary</summary>
+<div class="itinerary">
+<div class="day"><strong>Day 1</strong><span>Colombo → Bentota. Beach relaxation.</span></div>
+<div class="day"><strong>Day 2</strong><span>Bentota → Galle. Explore Galle Fort.</span></div>
+<div class="day"><strong>Day 3</strong><span>Unawatuna and surrounding coastal attractions.</span></div>
+<div class="day"><strong>Day 4</strong><span>Weligama / Mirissa. Optional marine activities.</span></div>
+<div class="day"><strong>Day 5</strong><span>Return to Colombo Airport.</span></div>
+</div>
+</details>
+<div class="card-buttons"><a class="btn btn-primary btn-small" href="contact.html">Enquire Now</a></div>
+</div>
+</article>
+
+<!-- 7 -->
+<article class="tour-card">
+<div class="tour-image" style="background-image:url('images/tours/ayurveda-wellness.jpg');"></div>
+<div class="tour-content">
+<span class="tour-tag">WELLNESS</span>
+<h3>Ayurveda & Wellness Escape</h3>
+<div class="duration">7 Days / 6 Nights</div>
+<p>
+Combine a Sri Lankan holiday with time dedicated to relaxation, traditional
+Ayurvedic wellness experiences, herbal therapies, oils and healthy cuisine.
+</p>
+<ul class="highlights">
+<li>Coastal relaxation</li>
+<li>Ayurvedic consultation</li>
+<li>Traditional herbal treatments</li>
+<li>Oil therapies and wellness programmes</li>
+<li>Optional sightseeing</li>
+</ul>
+<details>
+<summary>View Day-by-Day Itinerary</summary>
+<div class="itinerary">
+<div class="day"><strong>Day 1</strong><span>Airport → wellness resort.</span></div>
+<div class="day"><strong>Day 2</strong><span>Ayurvedic consultation and introductory treatments.</span></div>
+<div class="day"><strong>Day 3</strong><span>Wellness programme and relaxation.</span></div>
+<div class="day"><strong>Day 4</strong><span>Ayurvedic treatments and optional local excursion.</span></div>
+<div class="day"><strong>Day 5</strong><span>Wellness, herbal preparations and healthy Sri Lankan cuisine.</span></div>
+<div class="day"><strong>Day 6</strong><span>Relaxation and optional coastal sightseeing.</span></div>
+<div class="day"><strong>Day 7</strong><span>Resort → Colombo Airport.</span></div>
+</div>
+</details>
+<div class="card-buttons"><a class="btn btn-primary btn-small" href="contact.html">Enquire Now</a></div>
+</div>
+</article>
+
+<!-- 8 -->
+<article class="tour-card">
+<div class="tour-image" style="background-image:url('images/tours/grand-sri-lanka.jpg');"></div>
+<div class="tour-content">
+<span class="tour-tag">COMPLETE ISLAND EXPERIENCE</span>
+<h3>Grand Sri Lanka Tour</h3>
+<div class="duration">14 Days / 13 Nights</div>
+<p>
+Our comprehensive island journey combining ancient heritage, Kandy,
+tea country, Ella, wildlife and the beautiful southern coast.
+</p>
+<ul class="highlights">
+<li>Cultural Triangle</li>
+<li>Kandy and Central Highlands</li>
+<li>Tea plantations</li>
+<li>Ella</li>
+<li>Wildlife safari</li>
+<li>Galle and southern beaches</li>
+</ul>
+<details>
+<summary>View Day-by-Day Itinerary</summary>
+<div class="itinerary">
+<div class="day"><strong>Day 1</strong><span>Arrival → Negombo.</span></div>
+<div class="day"><strong>Day 2</strong><span>Negombo → Anuradhapura.</span></div>
+<div class="day"><strong>Day 3</strong><span>Anuradhapura → Sigiriya.</span></div>
+<div class="day"><strong>Day 4</strong><span>Sigiriya and Dambulla.</span></div>
+<div class="day"><strong>Day 5</strong><span>Polonnaruwa → Kandy.</span></div>
+<div class="day"><strong>Day 6</strong><span>Kandy sightseeing.</span></div>
+<div class="day"><strong>Day 7</strong><span>Kandy → Nuwara Eliya.</span></div>
+<div class="day"><strong>Day 8</strong><span>Nuwara Eliya → Ella.</span></div>
+<div class="day"><strong>Day 9</strong><span>Ella → Udawalawe.</span></div>
+<div class="day"><strong>Day 10</strong><span>Udawalawe safari → Yala.</span></div>
+<div class="day"><strong>Day 11</strong><span>Yala safari → southern coast.</span></div>
+<div class="day"><strong>Day 12</strong><span>Galle Fort and coastal sightseeing.</span></div>
+<div class="day"><strong>Day 13</strong><span>Southern beach relaxation.</span></div>
+<div class="day"><strong>Day 14</strong><span>Southern coast → Colombo Airport.</span></div>
+</div>
+</details>
+<div class="card-buttons"><a class="btn btn-primary btn-small" href="contact.html">Enquire Now</a></div>
+</div>
+</article>
+
+</div>
+</main>
+
+<section class="custom-tour">
+<div class="container">
+<h2>Can't Find the Perfect Tour?</h2>
+<p>
+Every traveller is different. Tell us how many days you have, the places you
+would like to visit and the experiences you are interested in. We can create
+a personalized Sri Lanka itinerary for you.
+</p>
+<a class="btn btn-primary" href="contact.html">Plan My Custom Tour</a>
+</div>
+</section>
+                <!---End AW Code---> 
+                <!-- Image -->
+                <section class="image-stack pt-30">
+                  <div class="image-stack-wrapper">
+                    <div class="image-stack-card">
+                      <img src="assets/img/Hidden500_1.jpg" alt="">
+                    </div>
+                    <div class="image-stack-card">
+                      <img src="assets/img/Hidden500_2.jpg" alt="">
+                    </div>
+                    <div class="image-stack-card">
+                      <img src="assets/img/Hidden500_3.jpg" alt="">
+                    </div>
+                    <div class="image-stack-card">
+                      <img src="assets/img/Hidden500_4.jpg" alt="">
+                    </div>
+                    <div class="image-stack-card">
+                      <img src="assets/img/Hidden500_5.jpg" alt="">
+                    </div>
+                  </div>
+                </section>
+                <!-- Services Details -->
+                <section class="service-details section-padding pt-30">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-7 col-md-12">
+                                <h4>Frequently Asked Questions</h4>
+                                <ul class="accordion-box clearfix">
+                                    <li class="accordion block">
+                                        <div class="acc-btn">How do I make a hotel reservation?</div>
+                                        <div class="acc-content">
+                                            <div class="content">
+                                                <p>You can easily book your stay through our website or by contacting our travel consultants for personalized assistance.</p> <i class="fa-thin fa-hotel"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion block">
+                                        <div class="acc-btn">What is the check-in and check-out time?</div>
+                                        <div class="acc-content">
+                                            <div class="content">
+                                                <p>Check-in and check-out times vary by hotel, but we always provide full details before your booking is confirmed.</p> <i class="fa-thin fa-calendar"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="accordion block active-block">
+                                        <div class="acc-btn active">Can I modify or cancel my booking?</div>
+                                        <div class="acc-content" style="display: block;">
+                                            <div class="content">
+                                                <p>Yes, most reservations can be modified or canceled according to the hotel’s policy. Our team is here to assist you with any changes.</p> <i class="fa-thin fa-plane"></i>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-md-7 mb-45 text-center">
+                            <div class="subscribe">
+                                <div class="section-subtitle wow fadeInRight">Subscribe to travel</div>
+                                <div class="section-title d-rotate wow mb-30"><span class="rotate-text text-white">Travel deals to your inbox<i>!</i></span></div>
+                                <div class="newsletter">
+                                    <form action="#">
+                                        <input type="email" placeholder="Enter your email address" required>
+                                        <button type="submit"><i class="fa-light fa-arrow-right"></i></button>
+                                    </form>
+                                </div>
+                                <p>We are committed to protecting your <a href="#0" class="text-decoration-line-bottom">privacy policy.</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Instagram -->
+                    <div class="insta">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="item">
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/Bentota500_5.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/VeryBottom5002.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/VeryBottom5003.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/VeryBottom5004.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/Kandy500_3.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="img">
+                                            <a href="#0"> <img src="assets/img/VeryBottom5006.jpg" alt=""> </a> <i class="fa-brands fa-instagram"></i>
+                                        </div>
+                                        <div class="follow">
+                                            <a href="#0" class="text-bg"> <span><i class="fa-brands fa-instagram"></i> / Shaniro</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bottom -->
+                <div class="bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-12">
+                                <p>&copy; All Rights Reserved <a href="https://1.envato.market/7ZzYQ" target="_blank">Shaniro</a></p>
+                            </div>
+                            <div class="col-lg-7 col-md-12 text-center">
+                                <div class="links">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="tours.html">Tours</a></li>
+                                        <li><a href="destination.html">Destinations</a></li>
+                                        <li><a href="blog.html">Blog</a></li>
+                                        <li><a href="contact.html">Contact</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 col-md-12">
+                                <div class="social-icons text-end">
+                                    <ul class="list-inline">
+                                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
+                                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-text-style5">Shaniro</div>
+            </footer>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="assets/js/jquery-3.6.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-3.4.0.min.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollSmoother.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/smoother-script.js"></script>
+    <script src="assets/js/springer.min.js"></script>
+    <script src="assets/js/lenis.min.js"></script>
+    <script src="assets/js/three.min.js"></script>
+    <script src="assets/js/hover-effect.umd.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+</html>
